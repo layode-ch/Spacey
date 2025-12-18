@@ -22,7 +22,7 @@ export class Game {
 	#score: number = 0;
 	#scoreElement: HTMLHeadingElement;
 	#timeElement: HTMLHeadingElement;
-	#time: number = 10	;
+	#time: number = 110;
 	
 	get score() { return this.#score; }
 	set score(value) {
