@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="synthwave">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
+	<link href="https://cdn.jsdelivr.net/npm/daisyui@5/themes.css" rel="stylesheet" type="text/css" />
+	<link href="https://cdn.jsdelivr.net/npm/daisyui@5" rel="stylesheet" type="text/css" />
+	<script type="importmap">
+		{
+			"imports": {
+				"animejs": "/node_modules/animejs/dist/bundles/anime.esm.js"
+			}
+		}
+	</script>
+	<script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+	<script type="module" src="src/bin/components/index.js"></script>
+	<script type="module" src="src/bin/App.js"></script>
+	<style>
+		canvas {
+			image-rendering: pixelated;
+			shape-rendering:crispEdges;
+		}
+	</style>
+</head>
+
+<body class="m-0 bg-[url(img/background.gif)] h-screen flex flex-col overflow-hidden">
+	<header class="sticky top-0 z-1">
+		<div id="notifications" class="flex flex-col items-end h-0">
+		</div>
+	</header>
+	<main class="flex-1 flex flex-col items-center text-center w-full h-full justify-around">
+		<h1 id="score">Score : 0</h1>
+		<h1 id="time">Seconds left: 100</h1>
+		<button class="btn btn-primary absolute top-0 left-0" id="btn-pause">
+			<i class="bi bi-pause-fill"></i>
+		</button>
+		<canvas class="absolute top-0 left-0 w-screen h-screen flex-1" height="500" width="500"></canvas>
+		<div id="controls" class="m-auto mb-10">
+			<div is="joystick-component"></div>
+		</div>
+	</main>
+</body>
+</body>
+
+</html>

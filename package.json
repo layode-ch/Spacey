@@ -1,0 +1,9 @@
+{
+  "dependencies": {
+    "animejs": "^4.2.2",
+    "typescript": "^5.9.3"
+  },
+  "scripts": {
+    "compile": "tsc --watch"
+  }
+}

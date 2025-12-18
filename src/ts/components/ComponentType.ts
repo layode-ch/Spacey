@@ -1,0 +1,1 @@
+type ComponentType = "infos"|"warning"|"success"|"error"|"primary"|"secondary";

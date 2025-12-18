@@ -1,0 +1,89 @@
+// @ts-ignore
+import { animate, waapi, eases, spring, JSAnimation } from 'animejs';
+
+
+/**
+ * Description placeholder
+ *
+ * @export
+ * @class Alert
+ * @extends {HTMLDivElement}
+ */
+export class Alert extends HTMLDivElement {
+    animation: JSAnimation;
+    btnClose: HTMLButtonElement;
+    static get name() { return "alert-component"; }
+
+    
+    get message() { return this.querySelector("span")!.textContent; }
+    set message(value) { this.querySelector("span")!.textContent = value; }
+
+    get fade () { 
+        const value = this.getAttribute("fade");
+        return value !== null && value !== "false" 
+    }
+    set fade (value) { this.setAttribute("fade", value.toString()); }
+    
+    /**
+     * @type {ComponentType|null}
+     */
+    get type() {
+        return this.getAttribute("type");
+    }
+    set type(value) {
+        this.classList.toggle(`alert-${value}`, value !== null);
+        this.setAttribute("type", value!);
+    }
+    
+    constructor() {
+        super();
+        this.classList.add("alert");
+        this.type = this.type;
+        const text = this.textContent;
+        this.innerHTML = `
+			<i class="bi bi-info-circle"></i>
+                <span>${text}</span>
+            <button type="button" class="alert-close" style="cursor: pointer;">
+                <i class="bi bi-x-lg"></i>
+            </button>
+		`;
+        this.btnClose = this.querySelector("button.alert-close")!;
+        this.btnClose.addEventListener("click", this.close.bind(this))
+        this.animation;
+    }
+
+    connectedCallback() {
+        const opacity = this.fade ? 0 : 1;
+        this.animation = animate(this, {
+            opacity: { from: opacity, 
+            duration: 300}
+        });
+    }
+
+    close() {
+        this.animation.onComplete = () => {
+            this.remove();
+        }
+        this.animation.reverse();
+    }
+
+    /**
+     * Creates an instance of `Alert`
+     *
+     * @param {string} message 
+     * @param {ComponentType} [type="infos"] 
+     * @param {boolean} fade 
+     * @static
+     * @returns {Alert}
+     */
+    static create(message: string, type: "infos" | "warning" | "success" | "error" | "primary" | "secondary" = "infos", fade: boolean = true): Alert {
+        /** @type {Alert} */
+        // @ts-ignore
+        const alert: Alert = document.createElement("div", { is: Alert.name }) as Alert;
+        alert.message = message;
+        alert.type = type;
+        alert.fade = fade;
+        return alert;
+    }
+}
+customElements.define(Alert.name, Alert, { extends: "div" });

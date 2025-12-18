@@ -1,0 +1,17 @@
+{
+	"compilerOptions": {
+		"module": "esnext",
+		"target": "esnext",
+		"outDir": "src/bin",
+		"rootDir": "src/ts",
+		"moduleResolution": "node",
+    	"skipLibCheck": true,
+		"esModuleInterop": true,
+		"allowSyntheticDefaultImports": true,
+		"strict": true,
+		"strictPropertyInitialization": false
+	},
+	"exclude": [
+		"node_modules"
+	]
+}
