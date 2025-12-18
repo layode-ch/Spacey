@@ -20,7 +20,7 @@ export class Game {
     #score = 0;
     #scoreElement;
     #timeElement;
-    #time = 10;
+    #time = 110;
     get score() { return this.#score; }
     set score(value) {
         this.#scoreElement.textContent = `Score: ${value}`;
