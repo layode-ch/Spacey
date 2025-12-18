@@ -2,7 +2,7 @@
   "name": "Spacey",
   "short_name": "Spacey",
   "description": "A space mobile game",
-  "start_url": "https://layode-ch.github.io/Spacey/",
+  "start_url": "./",
   "display": "standalone",
   "background_color": "#0f172a",
   "theme_color": "#0f172a",
