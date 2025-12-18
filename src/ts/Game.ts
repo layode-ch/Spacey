@@ -1,4 +1,4 @@
-import { Joystick } from "./components/index.js";
+import { Joystick } from "./components/Joystick.js";
 import { CollideEventArgs, Collider, Vector, World } from "./physics/index.js";
 import { Rectangle } from "./shapes/Rectangle.js";
 import { Spaceship, Alien, EntityManager, Bullet, Entity } from "./entities/index.js";
