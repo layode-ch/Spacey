@@ -66,7 +66,7 @@ export class Game {
 				alert(`Bravo! Vous avez fait un score de ${this.score}`);
 				window.location.reload();
 			}
-		}, 1000)
+		}, 1000);
 	}
 
 	async #loadSample(url: string) {
@@ -172,7 +172,6 @@ export class Game {
 		this.#player.collider.velocity = this.#joystick.vector.divided(5);
 		this.#world.update();
 		this.#ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
-		this.#world.draw(this.#ctx);
 		this.#entityManager.draw(this.#ctx);
 	}
 }
