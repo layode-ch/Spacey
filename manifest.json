@@ -2,7 +2,7 @@
   "name": "Spacey",
   "short_name": "Spacey",
   "description": "A space mobile game",
-  "start_url": "/",
+  "start_url": "/Spacey",
   "scope": "/",
   "display": "standalone",
   "background_color": "#0f172a",
